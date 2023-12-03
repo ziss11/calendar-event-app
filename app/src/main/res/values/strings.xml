@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">GoogleCalendarSyncApp</string>
     <string name="sign_in_with_google">Sign In with Google</string>
-    <string name="event">Event</string>
+    <string name="calendar_event">Calendar Event</string>
     <string name="logout">Logout</string>
     <string name="logout_alert">Are you sure want to logout?</string>
     <string name="cancel">Cancel</string>
