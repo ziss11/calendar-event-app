@@ -1,5 +1,7 @@
 package com.ziss.googlecalendarsyncapp.presentation
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -25,20 +27,13 @@ class LoginActivity : AppCompatActivity() {
 
                 try {
                     val account = task.getResult(ApiException::class.java)
+                    finish()
                     MainActivity.start(this, account)
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }
         }
-
-    override fun onStart() {
-        super.onStart()
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-        if (account != null) {
-            MainActivity.start(this, account)
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,8 +48,23 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        val account = GoogleSignIn.getLastSignedInAccount(this)
+        if (account != null) {
+            MainActivity.start(this, account)
+        }
+    }
+
     private fun login() {
         val signInIntent = googleSignInClient.signInIntent
         launcherSignInIntent.launch(signInIntent)
+    }
+
+    companion object {
+        fun start(context: Context) {
+            val intent = Intent(context, LoginActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 }
