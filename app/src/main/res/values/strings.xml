@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">GoogleCalendarSyncApp</string>
+    <string name="sign_in_with_google">Sign In with Google</string>
+    <string name="client_id">331057919422-gg7uklf8nup8a59bspuonuust48ff3jm.apps.googleusercontent.com</string>
+    <string name="event">Event</string>
+</resources>
